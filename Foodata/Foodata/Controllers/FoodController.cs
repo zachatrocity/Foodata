@@ -23,7 +23,7 @@ namespace Foodata.Controllers
         }
 
         // GET api/Food/5
-        public Food GetFood(double id)
+        public Food GetFood(Guid id)
         {
             Food food = db.Foods.Find(id);
             if (food == null)
@@ -35,14 +35,14 @@ namespace Foodata.Controllers
         }
 
         // PUT api/Food/5
-        public HttpResponseMessage PutFood(double id, Food food)
+        public HttpResponseMessage PutFood(Guid id, Food food)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != food.Food_Code)
+            if (id != food.primaryKey)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
@@ -80,7 +80,7 @@ namespace Foodata.Controllers
         }
 
         // DELETE api/Food/5
-        public HttpResponseMessage DeleteFood(double id)
+        public HttpResponseMessage DeleteFood(Guid id)
         {
             Food food = db.Foods.Find(id);
             if (food == null)

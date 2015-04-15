@@ -9,7 +9,8 @@ namespace Foodata.Models
     public class Food
     {
         [Key]
-        public double Food_Code { get; set; }
+        public Guid primaryKey { get; set; }
+        public string Food_Code { get; set; }
         public string Display_Name { get; set; }
         public double Portion_Default { get; set; }
         public double Portion_Amount { get; set; }
