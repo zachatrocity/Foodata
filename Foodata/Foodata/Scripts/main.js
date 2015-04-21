@@ -41,7 +41,7 @@ function init() {
             }
 
 
-            food.rank = food.foodname / rankcounter;
+            food.rank = food.foodname.length / rankcounter;
             return true;
         });
         /* End matching logic */
@@ -50,18 +50,18 @@ function init() {
         $('#fuzzy-results').empty();
         var i = 0;
 
-        matches.sort(function (a, b) {
-            if (a.rank > b.rank)
-                return 1;
-            if (a.rank < b.rank)
-                return -1;
+        //matches.sort(function (a, b) {
+        //    if (a.rank > b.rank)
+        //        return 1;
+        //    if (a.rank < b.rank)
+        //        return -1;
 
-            return 0;
-        });
+        //    return 0;
+        //});
 
         matches.forEach(function (match) {
             if (i < 15) {
-                $('#fuzzy-results').append($('<li>').text(wrapFuzzyResultInBoldText(match)));
+                $('#fuzzy-results').append($('<li>').html(wrapFuzzyResultInBoldText(match)));
                 i++;
             }
             else
@@ -74,9 +74,22 @@ function init() {
 
 function wrapFuzzyResultInBoldText(match) {
     var result = match.foodname;
+    match.matchindices.sort(function sortNumber(a, b) {
+        return a - b;
+    });
     //pretty much for every index in match.matchindicies wrap that letter in <strong> tags so its bold
-    
+    var indexbuf = 0;
+    $.each(match.matchindices, function (i, index) {
+        var bold = "<strong>" + result[index + indexbuf] + "</strong>";
 
+        var first = result.substring(0, index + indexbuf);
+        var sec = result.substring(index + indexbuf + 1);
+
+        result = first + bold + sec;
+
+        indexbuf += 17;
+
+    });
 
     return result;
 }
@@ -84,7 +97,6 @@ function wrapFuzzyResultInBoldText(match) {
 function getFood(id) {
     $.getJSON('api/Food/' + id)
     .done(function (data) {
-        //create index strings
         console.log(data)
     })
     .fail(function (jqXHR, textStatus, err) {
