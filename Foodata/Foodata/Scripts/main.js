@@ -77,17 +77,23 @@ function wrapFuzzyResultInBoldText(match) {
     match.matchindices.sort(function sortNumber(a, b) {
         return a - b;
     });
+
+    var uniqueIndicies = []
+    $.each(match.matchindices, function (i, el) {
+        if ($.inArray(el, uniqueIndicies) === -1) uniqueIndicies.push(el);
+    });
+
     //pretty much for every index in match.matchindicies wrap that letter in <strong> tags so its bold
     var indexbuf = 0;
-    $.each(match.matchindices, function (i, index) {
+    $.each(uniqueIndicies, function (i, index) {
         var bold = "<strong>" + result[index + indexbuf] + "</strong>";
 
         var first = result.substring(0, index + indexbuf);
         var sec = result.substring(index + indexbuf + 1);
 
         result = first + bold + sec;
-
         indexbuf += 17;
+
 
     });
 
@@ -112,7 +118,7 @@ function getAllFood() {
         $.each(data, function (i, el) {
             var foodItem = {
                 primarykey: el.primaryKey,
-                foodname: el.Display_Name + " - " + el.Portion_Display_Name,
+                foodname: el.Display_Name.replace(/&amp;/g, '&') + " - " + el.Portion_Display_Name.replace(/&amp;/g, '&'),
                 matchindices: [],
                 rank: 0
             }
