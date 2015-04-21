@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 Foodata/Foodata/App_Data/FoodataContext-20150414203933_log.ldf
 Foodata/Foodata/App_Data/FoodataContext-20150414203933.mdf
+=======
+Foodata/Foodata/App_Data/FoodataContext-20150414203933.mdf
+Foodata/Foodata/App_Data/FoodataContext-20150414203933_log.ldf
+Foodata/Foodata/bin/
+Foodata/Foodata/obj/Debug/Foodata.csproj.FileListAbsolute.txt
+>>>>>>> 9079d4c0d77794a5dd2ccb13c9f07ebd7776201e
