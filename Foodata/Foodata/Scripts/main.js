@@ -14,33 +14,61 @@ function init() {
         /* Matching logic */
         var matches = foodata.foodSearchArray.filter(function (food) {
 
-            var item = food.foodname;
-
             var j = 0; // remembers position of last found character
-
-            // consider each search character one at a time
+            var rankcounter = 0;
+            // consider each search character one at a time 
             for (var i = 0; i < search.length; i++) {
                 var l = search[i];
                 if (l == ' ') continue;     // ignore spaces
 
-                j = item.indexOf(l, j + 1);     // search for character & update position
-                if (j == -1) return false;  // if it's not found, exclude this item
+                j = food.foodname.toLowerCase().indexOf(l, j + 1);     // search for character & update position
+                if (j == -1) {
+                    return false;  // if it's not found, exclude this item
+                }
+                else {
+                    food.matchindices.push(j); //else its found add its index to item
+                    rankcounter++;
+                }
             }
+
+            food.rank = rankcounter * 10;
             return true;
         });
         /* End matching logic */
 
+        //displaying logic
         $('#fuzzy-results').empty();
         var i = 0;
+
+        matches.sort(function (a, b) {
+            if (a.rank > b.rank)
+                return 1;
+            if (a.rank < b.rank)
+                return -1;
+
+            return 0;
+        });
+
         matches.forEach(function (match) {
             if (i < 15) {
-                $('#fuzzy-results').append($('<li>').text(match.foodname));
+                $('#fuzzy-results').append($('<li>').text(wrapFuzzyResultInBoldText(match)));
                 i++;
             }
+            else
+                return 0;
         });
 
     }).keyup();
 
+}
+
+function wrapFuzzyResultInBoldText(match) {
+    var result = match.foodname;
+    //pretty much for every index in match.matchindicies wrap that letter in <strong> tags so its bold
+    
+
+
+    return result;
 }
 
 function getFood(id) {
@@ -62,7 +90,9 @@ function getAllFood() {
         $.each(data, function (i, el) {
             var foodItem = {
                 primarykey: el.primaryKey,
-                foodname: el.Display_Name
+                foodname: el.Display_Name,
+                matchindices: [],
+                rank: 0
             }
             foodata.foodSearchArray[i] = foodItem;
         })
