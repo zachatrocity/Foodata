@@ -59,10 +59,14 @@
     display: block;
     text-decoration: none;
     background-color: transparent;
+    color: black;
+    font: normal 15px/normal "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .fuzzylink:hover{
     background-color: #338cdf; 
+    color: black;
+    text-decoration:none;
 }
 
 .fuzzy-item:hover{
