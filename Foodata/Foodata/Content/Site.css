@@ -2,6 +2,7 @@
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
@@ -11,6 +12,7 @@ body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
+    overflow: hidden;
     padding: 0;
 }
 
@@ -104,26 +106,11 @@ h5, h6 {
     padding-bottom: 35px;
 }
 
-    .main-content {
-        background: url("../Images/accent.png") no-repeat;
-        padding-left: 10px;
-        padding-top: 30px;
-    }
-
-    .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
-    }
 
 header .content-wrapper {
     padding-top: 20px; 
 }
 
-footer {
-    clear: both;
-    background-color: #e2e2e2;
-    font-size: .8em;
-    height: 100px;
-}
 
 
 /* site title

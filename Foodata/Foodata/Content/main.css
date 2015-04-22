@@ -1,4 +1,10 @@
-﻿.search {
+﻿/*#body{
+    background-image: url("http://i62.tinypic.com/2j3gljo.jpgg");
+  background-repeat: no-repeat;
+   background-size: 100%, 100%;
+}*/
+
+.search {
   display: inline-block;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -38,6 +44,17 @@
   text-overflow: ellipsis;
 }
 
+.food-item-view{
+    display: none;
+    width: 590px;
+    height: 400px;
+    background-color: #338cdf;
+    -webkit-animation-delay: 1s;
+}
+
+.fuzzy-container{
+}
+
 .fuzzylink{
     display: block;
     text-decoration: none;
@@ -58,6 +75,14 @@
     background-color: #338cdf; 
 }
 
+.invisible{
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+
 #fuzzy-results{
     width: 590px;
     text-align: left;
@@ -66,4 +91,67 @@
     text-overflow: clip;
     list-style-type: none;
     text-decoration: none;
+}
+
+
+/*KEYFRAMES*/
+
+@-webkit-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fadein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fadein{    
+  animation:fadein 1.5s;
+  animation-timing-function:linear;
+  animation-delay:1s;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation:fadein 1.5s;
+  -webkit-animation-timing-function:linear;
+  -webkit-animation-delay:1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+@-moz-keyframes fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; display: none;}
+}
+@-o-keyframes fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; display: none;}
+}
+@keyframes fadeout {
+  0%   { opacity: 1; }
+  100% { opacity: 0; display: none;}
+}
+
+.fadeout{    
+  animation:fadeout 1.5s;
+  animation-timing-function:linear;
+  animation-delay:1s;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation:fadeout 1.5s;
+  -webkit-animation-timing-function:linear;
+  -webkit-animation-delay:1s;
+  -webkit-animation-fill-mode: forwards;
 }
