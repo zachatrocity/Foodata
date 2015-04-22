@@ -38,28 +38,32 @@
   text-overflow: ellipsis;
 }
 
-
-.fuzzy-results li {
+.fuzzylink{
+    display: block;
     text-decoration: none;
+    background-color: transparent;
 }
 
-.fuzzy-results{
+.fuzzylink:hover{
+    background-color: #338cdf; 
+}
+
+.fuzzy-item:hover{
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+    border-color: #2380dd #2179d5 #1a60aa;
+    background-color: #338cdf;
+}
+
+.highlighted-item{
+    background-color: #338cdf; 
+}
+
+#fuzzy-results{
     width: 590px;
     text-align: left;
-    font: normal 20px/normal "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font: normal 15px/normal "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     -o-text-overflow: clip;
     text-overflow: clip;
-    background: url("");
-    background-repeat: no-repeat;
-    background-position: 26% 50%;
-    -webkit-background-origin: padding-box;
-    background-origin: padding-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    -webkit-background-size: auto auto;
-    background-size: auto auto;
-    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    list-style-type: none;
+    text-decoration: none;
 }
