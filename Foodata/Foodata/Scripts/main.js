@@ -81,20 +81,7 @@ function init() {
         }
         else if (e.keyCode == 13) {
             var $res = $('.highlighted-item');
-            $('#fuzzy-results').addClass('animated bounceOutDown');
-            $('#fuzzy-results').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-                $('#fuzzy-results').removeClass('visible');
-                $('#fuzzy-results').addClass('invisible');
-            });
-            $.getJSON($res.children()[0].href)
-                .done(function (data) {
-                    $('.food-item-view').addClass('visible')
-                    $('.food-item-view').addClass('animated bounceInDown')
-                    console.log(data)
-                })
-                .fail(function (jqXHR, textStatus, err) {
-                    alert('Error: ' + err);
-                });
+            getSpecificFoodItem();
         }
 
     });
@@ -110,13 +97,11 @@ function getSpecificFoodItem(a) {
     else {
         $res = $('.highlighted-item').children()[0];
     }
-    $('#fuzzy-results').addClass('animated bounceOutDown');
-    $('#fuzzy-results').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-        $('#fuzzy-results').removeClass('visible');
-        $('#fuzzy-results').addClass('invisible');
-    });
+    toggleResults();
+
     $.getJSON($res.href)
         .done(function (data) {
+            $('.food-item-view').removeClass('invisible');
             $('.food-item-view').addClass('visible')
             $('.food-item-view').addClass('animated bounceInDown')
             console.log(data)
@@ -258,4 +243,13 @@ function getAllFood() {
         alert('Error: ' + err);
     });
 
+}
+
+
+function toggleResults() {
+    $('#fuzzy-results').toggleClass('animated bounceOutDown');
+    $('#fuzzy-results').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+        $('#fuzzy-results').removeClass('visible');
+        $('#fuzzy-results').addClass('invisible');
+    });
 }
