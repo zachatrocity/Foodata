@@ -239,7 +239,7 @@ function getFood(id) {
 }
 
 function getAllFood() {
-    $.getJSON('api/Food')
+    $.getJSON('../api/Food')
     .done(function (data) {
         // On success, 'data' contains all food
         $.each(data, function (i, el) {
