@@ -293,6 +293,7 @@
     <Content Include="Views\Home\Create.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Home\Update.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
