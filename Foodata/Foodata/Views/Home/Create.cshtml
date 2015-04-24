@@ -6,6 +6,11 @@
 <h2>Create</h2>
 <div class="container">
     <div class="row">
+        <div class="col-md-6">
+            <h6>*Empty fields will have a value of 0. For an example entry click on the READ tab.</h6>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-3">Food_Code: <input class="form-control" type="text" id="Food_Code" /></div>
         <div class="col-md-3">Display_Name: <input class="form-control" type="text" id="Display_Name" /></div>
         <div class="col-md-3">Portion_Default: <input class="form-control" type="text" id="Portion_Default" /></div>
@@ -70,14 +75,94 @@
             Calories: $("#Calories").val(),
             Saturated_Fats: $("#Saturated_Fats").val()
         };
-        debugger;
+        if (food.Food_Code == "") {
+            food.Food_Code = "00000000";
+        }
+        if (food.Display_Name == "") {
+            food.Display_Name = "Unknown";
+        }
+        if (food.Portion_Default == "") {
+            food.Portion_Default = 0.0;
+        }
+        if (food.Portion_Amount == "") {
+            food.Portion_Amount = 0.0;
+        }
+        if (food.Portion_Display_Name == "") {
+            food.Portion_Display_Name = "";
+        }
+        if (food.Factor == "") {
+            food.Factor = 0.0;
+        }
+        if (food.Increment == "") {
+            food.Increment = 0.0;
+        }
+        if (food.Multiplier == "") {
+            food.Multiplier = 0.0;
+        }
+        if (food.Grains == "") {
+            food.Grains = 0.0;
+        }
+        if (food.Whole_Grains == "") {
+            food.Whole_Grains = 0.0;
+        }
+        if (food.Vegetables == "") {
+            food.Vegetables = 0.0;
+        }
+        if (food.Orange_Vegetables == "") {
+            food.Orange_Vegetables = 0.0;
+        }
+        if (food.Drkgreen_Vegetables == "") {
+            food.Drkgreen_Vegetables = 0.0;
+        }
+        if (food.Starchy_vegetables == "") {
+            food.Starchy_vegetables = 0.0;
+        }
+        if (food.Other_Vegetables == "") {
+            food.Other_Vegetables = 0.0;
+        }
+        if (food.Fruits == "") {
+            food.Fruits = 0.0;
+        }
+        if (food.Milk == "") {
+            food.Milk = 0.0;
+        }
+        if (food.Meats == "") {
+            food.Meats = 0.0;
+        }
+        if (food.Soy == "") {
+            food.Soy = 0.0;
+        }
+        if (food.Drybeans_Peas == "") {
+            food.Drybeans_Peas = 0.0;
+        }
+        if (food.Oils == "") {
+            food.Oils = 0.0;
+        }
+        if (food.Solid_Fats == "") {
+            food.Solid_Fats = 0.0;
+        }
+        if (food.Added_Sugars == "") {
+            food.Added_Sugars = 0.0;
+        }
+        if (food.Alcohol == "") {
+            food.Alcohol = 0.0;
+        }
+        if (food.Calories == "") {
+            food.Calories = 0.0;
+        }
+        if (food.Saturated_Fats == "") {
+            food.Saturated_Fats = 0.0;
+        }
+
         $.ajax({
             url: '../api/Food',
             type: 'POST',
-            data: { food: food },
+            data: JSON.stringify(food),
+            dataType: "json",
             contentType: 'application/json; charset=utf-8',
             success: function (response) {
-                alert(response.status);
+                //alert(response.status);
+                window.location = "../";
             },
             error: function () {
                 alert("error");

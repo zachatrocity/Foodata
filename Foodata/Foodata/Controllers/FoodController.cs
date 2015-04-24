@@ -64,6 +64,8 @@ namespace Foodata.Controllers
         // POST api/Food
         public HttpResponseMessage PostFood(Food food)
         {
+            food.primaryKey = Guid.NewGuid();
+
             if (ModelState.IsValid)
             {
                 db.Foods.Add(food);
