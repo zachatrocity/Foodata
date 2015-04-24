@@ -99,7 +99,7 @@ html{
 }
 
 #fuzzy-results{
-    width: 590px;
+    width: 52%;
     text-align: left;
     font: normal 15px/normal "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     -o-text-overflow: clip;
