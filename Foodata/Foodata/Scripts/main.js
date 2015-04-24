@@ -6,6 +6,7 @@
 $(init);
 
 function init() {
+
     foodata.allfood = getAllFood();
 
     $('.fuzzylink').live('click', function (event) {
@@ -213,12 +214,12 @@ function wrapFuzzyResultInBoldText(match) {
 }
 
 function getFood(id) {
-    $.getJSON('api/Food/' + id)
+    $.getJSON('..api/Food/' + id)
     .done(function (data) {
         console.log(data)
     })
     .fail(function (jqXHR, textStatus, err) {
-        alert('Error: ' + err);
+        console.log('Error: ' + err);
     });
 
 }
@@ -240,7 +241,7 @@ function getAllFood() {
         return data;
     })
     .fail(function (jqXHR, textStatus, err) {
-        alert('Error: ' + err);
+        console.log('Error: ' + err);
     });
 
 }
