@@ -103,14 +103,45 @@ function getSpecificFoodItem(a) {
     $.getJSON($res.href)
         .done(function (data) {
             $('.food-item-view').removeClass('invisible');
-            $('.food-item-view').addClass('visible')
-            $('.food-item-view').addClass('animated bounceInDown')
+            $('.food-item-view').addClass('visible');
+            $('.food-item-view').addClass('animated bounceInDown');
+            fillResults(data);
             console.log(data)
         })
         .fail(function (jqXHR, textStatus, err) {
             alert('Error: ' + err);
         });
 
+}
+
+function fillResults(data)
+{
+    $("#Food_Code").html("<strong>Food_Code:</strong> " + data.Food_Code);
+    $("#Display_Name").html("<strong>Display_Name:</strong> " + data.Display_Name);
+    $("#Portion_Default").html("<strong>Portion_Default:</strong> " + data.Portion_Default);
+    $("#Portion_Amount").html("<strong>Portion_Amount:</strong> " + data.Portion_Amount);
+    $("#Portion_Display_Name").html("<strong>Portion_Display_Name:</strong> " + data.Portion_Display_Name);
+    $("#Factor").html("<strong>Factor:</strong> " + data.Factor);
+    $("#Increment").html("<strong>Increment:</strong> " + data.Increment);
+    $("#Multiplier").html("<strong>Multiplier:</strong> " + data.Multiplier);
+    $("#Grains").html("<strong>Grains:</strong> " + data.Grains);
+    $("#Whole_Grains").html("<strong>Whole_Grains:</strong> " + data.Whole_Grains);
+    $("#Vegetables").html("<strong>Vegetables:</strong> " + data.Vegetables);
+    $("#Orange_Vegetables").html("<strong>Orange_Vegetables:</strong> " + data.Orange_Vegetables);
+    $("#Drkgreen_Vegetables").html("<strong>Drkgreen_Vegetables:</strong> " + data.Drkgreen_Vegetables);
+    $("#Starchy_vegetables").html("<strong>Starchy_vegetables:</strong> " + data.Starchy_vegetables);
+    $("#Other_Vegetables").html("<strong>Other_Vegetables:</strong> " + data.Other_Vegetables);
+    $("#Fruits").html("<strong>Fruits:</strong> " + data.Fruits);
+    $("#Milk").html("<strong>Milk:</strong> " + data.Milk);
+    $("#Meats").html("<strong>Meats:</strong> " + data.Meats);
+    $("#Soy").html("<strong>Soy:</strong> " + data.Soy);
+    $("#Drybeans_Peas").html("<strong>Drybeans_Peas:</strong> " + data.Drybeans_Peas);
+    $("#Oils").html("<strong>Oils:</strong> " + data.Oils);
+    $("#Solid_Fats").html("<strong>Solid_Fats:</strong> " + data.Solid_Fats);
+    $("#Added_Sugars").html("<strong>Added_Sugars:</strong> " + data.Added_Sugars);
+    $("#Alcohol").html("<strong>Alcohol:</strong> " + data.Alcohol);
+    $("#Calories").html("<strong>Calories:</strong> " + data.Calories);
+    $("#Saturated_Fats").html("<strong>Saturated_Fats:</strong> " + data.Saturated_Fats);
 }
 
 function fuzzy(search) {

@@ -13,10 +13,42 @@
                 <div class="col-md-12">
                     <ul id="fuzzy-results" class="list"></ul>
                     <div class="food-item-view">
-
+                        <div class='col-md-4' id='Food_Code' style='text-align: left'></div>
+                        <div class='col-md-4' id='Display_Name' style='text-align: left'></div>
+                        <div class='col-md-4' id='Portion_Default' style='text-align: left'></div>
+                        <div class='col-md-4' id='Portion_Amount' style='text-align: left'></div>
+                        <div class='col-md-4' id='Portion_Display_Name' style='text-align: left'></div>
+                        <div class='col-md-4' id='Factor' style='text-align: left'></div>
+                        <div class='col-md-4' id='Increment' style='text-align: left'></div>
+                        <div class='col-md-4' id='Multiplier' style='text-align: left'></div>
+                        <div class='col-md-4' id='Grains' style='text-align: left'></div>
+                        <div class='col-md-4' id='Whole_Grains' style='text-align: left'></div>
+                        <div class='col-md-4' id='Vegetables' style='text-align: left'></div>
+                        <div class='col-md-4' id='Orange_Vegetables' style='text-align: left'></div>
+                        <div class='col-md-4' id='Drkgreen_Vegetables' style='text-align: left'></div>
+                        <div class='col-md-4' id='Starchy_vegetables' style='text-align: left'></div>
+                        <div class='col-md-4' id='Other_Vegetables' style='text-align: left'></div>
+                        <div class='col-md-4' id='Fruits' style='text-align: left'></div>
+                        <div class='col-md-4' id='Milk' style='text-align: left'></div>
+                        <div class='col-md-4' id='Meats' style='text-align: left'></div>
+                        <div class='col-md-4' id='Soy' style='text-align: left'></div>
+                        <div class='col-md-4' id='Drybeans_Peas' style='text-align: left'></div>
+                        <div class='col-md-4' id='Oils' style='text-align: left'></div>
+                        <div class='col-md-4' id='Solid_Fats' style='text-align: left'></div>
+                        <div class='col-md-4' id='Added_Sugars' style='text-align: left'></div>
+                        <div class='col-md-4' id='Alcohol' style='text-align: left'></div>
+                        <div class='col-md-4' id='Calories' style='text-align: left'></div>
+                        <div class='col-md-4' id='Saturated_Fats' style='text-align: left'></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $('.fuzzylink').click(function (object) {
+        var itemGuid = e.target.getAttribute("href").substring(0, 4);
+        $(".food-item-view").html("<p>Example</p>");
+    })
+</script>
