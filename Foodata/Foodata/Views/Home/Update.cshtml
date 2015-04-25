@@ -48,31 +48,165 @@
 
 <script>
     $(window).ready(function () {
-        $("#Food_Code").val(),
-        $("#Display_Name").val(),
-        $("#Portion_Default").val(),
-        $("#Portion_Amount").val(),
-        $("#Portion_Display_Name").val(),
-        $("#Factor").val(),
-        $("#Increment").val(),
-        $("#Multiplier").val(),
-        $("#Grains").val(),
-        $("#Whole_Grains").val(),
-        $("#Vegetables").val(),
-        $("#Orange_Vegetables").val(),
-        $("#Drkgreen_Vegetables").val(),
-        $("#Starchy_vegetables").val(),
-        $("#Other_Vegetables").val(),
-        $("#Fruits").val(),
-        $("#Milk").val(),
-        $("#Meats").val(),
-        $("#Soy").val(),
-        $("#Drybeans_Peas").val(),
-        $("#Oils").val(),
-        $("#Solid_Fats").val(),
-        $("#Added_Sugars").val(),
-        $("#Alcohol").val(),
-        $("#Calories").val(),
-        $("#Saturated_Fats").val()
+        var foodGuid = purl(window.location.href).param('foodGuid');
+        $.getJSON('../api/Food/' + foodGuid)
+        .done(function (data) {
+            $("#Food_Code").val(data.Food_Code),
+            $("#Display_Name").val(data.Display_Name),
+            $("#Portion_Default").val(data.Portion_Default),
+            $("#Portion_Amount").val(data.Portion_Amount),
+            $("#Portion_Display_Name").val(data.Portion_Display_Name),
+            $("#Factor").val(data.Factor),
+            $("#Increment").val(data.Increment),
+            $("#Multiplier").val(data.Multiplier),
+            $("#Grains").val(data.Grains),
+            $("#Whole_Grains").val(data.Whole_Grains),
+            $("#Vegetables").val(data.Vegetables),
+            $("#Orange_Vegetables").val(data.Orange_Vegetables),
+            $("#Drkgreen_Vegetables").val(data.Drkgreen_Vegetables),
+            $("#Starchy_vegetables").val(data.Starchy_vegetables),
+            $("#Other_Vegetables").val(data.Other_Vegetables),
+            $("#Fruits").val(data.Fruits),
+            $("#Milk").val(data.Milk),
+            $("#Meats").val(data.Meats),
+            $("#Soy").val(data.Soy),
+            $("#Drybeans_Peas").val(data.Drybeans_Peas),
+            $("#Oils").val(data.Oils),
+            $("#Solid_Fats").val(data.Solid_Fats),
+            $("#Added_Sugars").val(data.Added_Sugars),
+            $("#Alcohol").val(data.Alcohol),
+            $("#Calories").val(data.Calories),
+            $("#Saturated_Fats").val(data.Saturated_Fats)
+        })
+        .fail(function (jqXHR, textStatus, err) {
+            console.log('Error: ' + err);
+        });
+    });
+
+    $("#update").click(function () {
+        var food = {
+            Food_Code: $("#Food_Code").val(),
+            Display_Name: $("#Display_Name").val(),
+            Portion_Default: $("#Portion_Default").val(),
+            Portion_Amount: $("#Portion_Amount").val(),
+            Portion_Display_Name: $("#Portion_Display_Name").val(),
+            Factor: $("#Factor").val(),
+            Increment: $("#Increment").val(),
+            Multiplier: $("#Multiplier").val(),
+            Grains: $("#Grains").val(),
+            Whole_Grains: $("#Whole_Grains").val(),
+            Vegetables: $("#Vegetables").val(),
+            Orange_Vegetables: $("#Orange_Vegetables").val(),
+            Drkgreen_Vegetables: $("#Drkgreen_Vegetables").val(),
+            Starchy_vegetables: $("#Starchy_vegetables").val(),
+            Other_Vegetables: $("#Other_Vegetables").val(),
+            Fruits: $("#Fruits").val(),
+            Milk: $("#Milk").val(),
+            Meats: $("#Meats").val(),
+            Soy: $("#Soy").val(),
+            Drybeans_Peas: $("#Drybeans_Peas").val(),
+            Oils: $("#Oils").val(),
+            Solid_Fats: $("#Solid_Fats").val(),
+            Added_Sugars: $("#Added_Sugars").val(),
+            Alcohol: $("#Alcohol").val(),
+            Calories: $("#Calories").val(),
+            Saturated_Fats: $("#Saturated_Fats").val()
+        };
+
+        if (food.Food_Code == "") {
+            food.Food_Code = "00000000";
+        }
+        if (food.Display_Name == "") {
+            food.Display_Name = "Unknown";
+        }
+        if (food.Portion_Default == "") {
+            food.Portion_Default = 0.0;
+        }
+        if (food.Portion_Amount == "") {
+            food.Portion_Amount = 0.0;
+        }
+        if (food.Portion_Display_Name == "") {
+            food.Portion_Display_Name = "";
+        }
+        if (food.Factor == "") {
+            food.Factor = 0.0;
+        }
+        if (food.Increment == "") {
+            food.Increment = 0.0;
+        }
+        if (food.Multiplier == "") {
+            food.Multiplier = 0.0;
+        }
+        if (food.Grains == "") {
+            food.Grains = 0.0;
+        }
+        if (food.Whole_Grains == "") {
+            food.Whole_Grains = 0.0;
+        }
+        if (food.Vegetables == "") {
+            food.Vegetables = 0.0;
+        }
+        if (food.Orange_Vegetables == "") {
+            food.Orange_Vegetables = 0.0;
+        }
+        if (food.Drkgreen_Vegetables == "") {
+            food.Drkgreen_Vegetables = 0.0;
+        }
+        if (food.Starchy_vegetables == "") {
+            food.Starchy_vegetables = 0.0;
+        }
+        if (food.Other_Vegetables == "") {
+            food.Other_Vegetables = 0.0;
+        }
+        if (food.Fruits == "") {
+            food.Fruits = 0.0;
+        }
+        if (food.Milk == "") {
+            food.Milk = 0.0;
+        }
+        if (food.Meats == "") {
+            food.Meats = 0.0;
+        }
+        if (food.Soy == "") {
+            food.Soy = 0.0;
+        }
+        if (food.Drybeans_Peas == "") {
+            food.Drybeans_Peas = 0.0;
+        }
+        if (food.Oils == "") {
+            food.Oils = 0.0;
+        }
+        if (food.Solid_Fats == "") {
+            food.Solid_Fats = 0.0;
+        }
+        if (food.Added_Sugars == "") {
+            food.Added_Sugars = 0.0;
+        }
+        if (food.Alcohol == "") {
+            food.Alcohol = 0.0;
+        }
+        if (food.Calories == "") {
+            food.Calories = 0.0;
+        }
+        if (food.Saturated_Fats == "") {
+            food.Saturated_Fats = 0.0;
+        }
+
+        var foodGuid = purl(window.location.href).param('foodGuid');
+        /* TODO: Make update work
+        $.ajax({
+            url: '../api/Food/' + foodGuid,
+            type: 'PUT',
+            data: JSON.stringify(food),
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            success: function (response) {
+                //alert(response.status);
+                window.location = "../";
+            },
+            error: function () {
+                alert("error");
+            }
+        });*/
     });
 </script>
