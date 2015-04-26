@@ -193,7 +193,7 @@
         }
 
         var foodGuid = purl(window.location.href).param('foodGuid');
-        /* TODO: Make update work
+
         $.ajax({
             url: '../api/Food/' + foodGuid,
             type: 'PUT',
@@ -201,12 +201,11 @@
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
             success: function (response) {
-                //alert(response.status);
                 window.location = "../";
             },
             error: function () {
                 alert("error");
             }
-        });*/
+        });
     });
 </script>

@@ -37,6 +37,7 @@ namespace Foodata.Controllers
         // PUT api/Food/5
         public HttpResponseMessage PutFood(Guid id, Food food)
         {
+            food.primaryKey = id;
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
