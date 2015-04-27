@@ -22,6 +22,9 @@ namespace Foodata
                         "~/Scripts/list.js", 
                         "~/Scripts/fuzzysearch.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/chart").Include(
+                        "~/Scripts/Chart.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
                         "~/Scripts/main.js"));
 

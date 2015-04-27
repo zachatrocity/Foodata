@@ -30,6 +30,8 @@
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("CREATE", "Create", "Home", new { area = "" }, new { @class = "hint--right", data_hint = "Do a POST request and create a new food item" })</li>
                             <li><a href="/api/Food/" class="hint--right" data-hint="Do a GET request and return all data (XML)">READ</a></li>
+                            <li>@Html.ActionLink("SassyFats", "SassyFats", "Home", new { area = "" }, new { @class = "hint--right", data_hint = "GET the foods with the highest saturated fats" })</li>
+                            <li>@Html.ActionLink("CalCounter", "CalCounter", "Home", new { area = "" }, new { @class = "hint--right", data_hint = "GET the foods with the highest calories" })</li>
                         </ul>
                     </li>
                 </ul>

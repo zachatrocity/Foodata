@@ -297,6 +297,8 @@
     <Content Include="Views\Home\Update.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Home\SassyFats.cshtml" />
+    <Content Include="Views\Home\CalCounter.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

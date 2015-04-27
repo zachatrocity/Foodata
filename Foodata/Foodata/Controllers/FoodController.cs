@@ -22,6 +22,20 @@ namespace Foodata.Controllers
             return db.Foods.AsEnumerable();
         }
 
+        // GET api/Food?refine=<string>
+        public IEnumerable<Food> GetFoods(string refine)
+        {
+            var foods = from f in db.Foods
+                        select f;
+
+            if (refine == "sassyfats")
+                foods = foods.OrderByDescending(s => s.Saturated_Fats).Take(25);
+            else if(refine == "calcounter")
+                foods = foods.OrderByDescending(s => s.Calories).Take(25);
+
+            return foods.AsEnumerable();
+        }
+
         // GET api/Food/5
         public Food GetFood(Guid id)
         {

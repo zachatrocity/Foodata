@@ -22,5 +22,15 @@ namespace Foodata.Controllers
         {
             return View();
         }
+
+        public ActionResult SassyFats()
+        {
+            return View();
+        }
+
+        public ActionResult CalCounter()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "CalCounter";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<h2>CalCounter</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="calcounter-container"></ul>
+        </div>
+    </div>
+    <br />
+</div>
+
+<script>
+    $(window).ready(function () {
+        getCalCounter();
+    });
+
+    function getCalCounter() {
+        var $container = $('.calcounter-container');
+
+        $.getJSON('../api/Food?refine=calcounter')
+           .done(function (data) {
+               // On success, 'data' contains all food
+               console.log(data)
+               $.each(data, function (i, el) {
+                   $container.append($("<li class='cal-item'>").html(el.Display_Name + " --- Callories: " + el.Calories));
+               })
+
+               return data;
+           })
+           .fail(function (jqXHR, textStatus, err) {
+               console.log('Error: ' + err);
+           });
+    }
+</script>
