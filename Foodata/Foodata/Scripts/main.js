@@ -15,6 +15,12 @@ function init() {
         event.stopPropagation();
     });
 
+    $('.deletebutton').live('click', function (event) {
+        deleteSpecificFoodItem(event.currentTarget.href);
+        event.preventDefault();
+        event.stopPropagation();
+    });
+
     $('#fuzzy-search').keyup(function (e) {
 
         if (e.keyCode != 40 && e.keyCode != 38) {
@@ -87,6 +93,25 @@ function init() {
 
     });
 
+}
+
+function deleteSpecificFoodItem(href) {
+    $.ajax({
+        url: href,
+        type: 'DELETE',
+        contentType: 'application/json; charset=utf-8',
+        success: function (response) {
+            foodata.allfood = getAllFood();
+            //toast
+            toastr.success('The item: ' + response.Display_Name + ' has successfully been deleted.')
+            //refresh search
+            $('#fuzzy-results').empty();
+            
+        },
+        error: function () {
+            alert("error");
+        }
+    });
 }
 
 function getSpecificFoodItem(a) {
@@ -208,9 +233,10 @@ function fuzzy(search) {
 
     matches.forEach(function (match) {
         if (i < 15) {
-            $('#fuzzy-results').append($("<li class='fuzzy-item'>")
-                               .append($("<a class= 'fuzzylink' href='/api/food/" + match.primarykey + "'>")
-                               .append($("<span>").html(wrapFuzzyResultInBoldText(match)))));
+            var $item = $("<li class='fuzzy-item'>")
+            $('#fuzzy-results').append($item.append($("<a class= 'fuzzylink' href='/api/food/" + match.primarykey + "'>").append($("<text>").html(wrapFuzzyResultInBoldText(match))))
+                               .append($("<a class='updatebutton' href='/Home/Update?foodGuid=" + match.primarykey + "'>Update</a>"))
+                               .append($("<a class='deletebutton' href='/api/food/" + match.primarykey + "'>Delete</a>")));
             i++;
         }
         else

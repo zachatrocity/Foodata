@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\Hint.css" />
     <Content Include="Content\main.css" />
@@ -230,7 +231,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="App_Data\Food_Display_Table.xml" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
